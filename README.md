@@ -29,7 +29,7 @@ After publish the package files you must open laravel-log-usage.php in config fo
 ##lumen Installation:
 add package service provider in bootstrap/app.php.
 ``` php
-$app->register(apIr\LaravelLogUsage\LaravelLogUsageServiceProvider::class);
+$app->register(MapIr\LaravelLogUsage\LaravelLogUsageServiceProvider::class);
 ```
 copy package config directory `vendor/map-ir/laravel-log-usage/config` to root folder alongside with app directory.
 update bootstrap/app.php by adding this line in `Register Config Files` section:
