@@ -1,0 +1,57 @@
+{
+    "name": "map-ir/laravel-log-usage",
+    "description": "log usage service",
+    "keywords": [
+        "map-ir",
+        "laravel-log-usage"
+    ],
+    "homepage": "https://github.com/map-ir/laravel-log-usage",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Armin Nasiri",
+            "email": "a.nasiri@map.ir",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "nmred/kafka-php": "dev-v0.3.0-dev",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MapIr\\LaravelLogUsage\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MapIr\\LaravelLogUsage\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MapIr\\LaravelLogUsage\\LaravelLogUsageServiceProvider"
+            ],
+            "aliases": {
+                "LaravelLogUsage": "MapIr\\LaravelLogUsage\\LaravelLogUsageFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
