@@ -1,4 +1,4 @@
-# Mpa.ir log usage kafka and ELK
+# Map.ir log usage kafka and ELK
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/map-ir/laravel-log-usage.svg?style=flat-square)](https://packagist.org/packages/map-ir/laravel-log-usage)
 [![Build Status](https://img.shields.io/travis/map-ir/laravel-log-usage/master.svg?style=flat-square)](https://travis-ci.org/map-ir/laravel-log-usage)
@@ -15,7 +15,7 @@ You can install the package via composer:
 ```bash
 composer require map-ir/laravel-log-usage
 ```
-##laravel Installation:
+## laravel Installation
 in laravel < 5.4
 add this line to your config/app.php providers:
 ``` php
@@ -26,7 +26,8 @@ MapIr\LaravelLogUsage\LaravelLogUsageServiceProvider::class,
 php artisan vendor:publish --tag=config
 ```
 After publish the package files you must open laravel-log-usage.php in config folder.
-##lumen Installation:
+
+## lumen Installation
 add package service provider in bootstrap/app.php.
 ``` php
 $app->register(MapIr\LaravelLogUsage\LaravelLogUsageServiceProvider::class);
