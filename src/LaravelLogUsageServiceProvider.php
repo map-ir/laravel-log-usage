@@ -15,7 +15,7 @@ class LaravelLogUsageServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laravel-log-usage.php'),
+                __DIR__.'/../config/config.php' => config_path('logUsage.php'),
             ], 'config');
         }
     }
@@ -26,14 +26,9 @@ class LaravelLogUsageServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-log-usage');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'logUsage');
         // Add middleware
         $kernel =$this->app->make(Kernel::class);
-
         $kernel->pushMiddleware(LogUsageMiddleware::class);
-        // Register the main class to use with the facade
-        $this->app->singleton('laravel-log-usage', function () {
-            return new LaravelLogUsage;
-        });
     }
 }

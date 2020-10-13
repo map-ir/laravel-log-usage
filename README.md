@@ -1,8 +1,6 @@
 # Map.ir log usage kafka and ELK
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/map-ir/laravel-log-usage.svg?style=flat-square)](https://packagist.org/packages/map-ir/laravel-log-usage)
-[![Build Status](https://img.shields.io/travis/map-ir/laravel-log-usage/master.svg?style=flat-square)](https://travis-ci.org/map-ir/laravel-log-usage)
-[![Quality Score](https://img.shields.io/scrutinizer/g/map-ir/laravel-log-usage.svg?style=flat-square)](https://scrutinizer-ci.com/g/map-ir/laravel-log-usage)
 [![Total Downloads](https://img.shields.io/packagist/dt/map-ir/laravel-log-usage.svg?style=flat-square)](https://packagist.org/packages/map-ir/laravel-log-usage)
 
 #### kafka
@@ -27,14 +25,16 @@ php artisan vendor:publish --tag=config
 ```
 After publish the package files you must open laravel-log-usage.php in config folder.
 ##lumen Installation:
-add package service provider in bootstrap/app.php.
+add package middleware in bootstrap/app.php.
 ``` php
-$app->register(MapIr\LaravelLogUsage\LaravelLogUsageServiceProvider::class);
+ $app->middleware([
+     \MapIr\LaravelLogUsage\Http\Middleware\LogUsageMiddleware::class
+ ]);
 ```
-copy package config directory `vendor/map-ir/laravel-log-usage/config` to root folder alongside with app directory.
+copy package config directory `vendor/map-ir/laravel-log-usage/config/logUsage.php` to root folder alongside with app directory.
 update bootstrap/app.php by adding this line in `Register Config Files` section:
 ``` php
-$app->configure('laravel-log-usage');
+$app->configure('logUsage');
 ```
 > you can set the keys in your .env file
 ``` dotenv
@@ -43,7 +43,7 @@ BROKER_VERSION="version use broker"
 KAFKA_MRIM="Topic metadata refresh interval in milliseconds broker"
 REQUIRED_ACK="This field indicates how many acknowledgements the leader broker"
 IS_ASYNC="Whether to use asynchronous production messages"
-KAFKA_KEY="key for kafka producer"
+KAFKA_KEY="key for kafka producer index"
 ```
 ## Usage
  for config ELK Consumer kafka 
@@ -52,15 +52,6 @@ KAFKA_KEY="key for kafka producer"
 ``` bash
 composer test
 ```
-
-### Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
 ### Security
 
 If you discover any security related issues, please email a.nasiri@map.ir instead of using the issue tracker.
