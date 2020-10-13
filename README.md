@@ -13,7 +13,7 @@ You can install the package via composer:
 ```bash
 composer require map-ir/laravel-log-usage
 ```
-##laravel Installation:
+## laravel Installation
 in laravel < 5.4
 add this line to your config/app.php providers:
 ``` php
