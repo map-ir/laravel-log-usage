@@ -24,7 +24,8 @@ MapIr\LaravelLogUsage\LaravelLogUsageServiceProvider::class,
 php artisan vendor:publish --tag=config
 ```
 After publish the package files you must open laravel-log-usage.php in config folder.
-##lumen Installation:
+
+## lumen Installation:
 add package middleware in bootstrap/app.php.
 ``` php
  $app->middleware([
