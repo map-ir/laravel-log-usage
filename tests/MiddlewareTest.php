@@ -10,7 +10,7 @@ use MapIr\LaravelLogUsage\LaravelLogUsageServiceProvider;
 class MiddlewareTest extends TestCase
 {
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [LaravelLogUsageServiceProvider::class];
     }

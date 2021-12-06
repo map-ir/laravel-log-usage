@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": "^7.1|^8.0",
+        "ext-rdkafka": "^5.0",
         "nmred/kafka-php": "dev-v0.3.0-dev",
         "ext-json": "*"
     },
