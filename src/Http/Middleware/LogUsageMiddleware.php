@@ -47,7 +47,7 @@ class LogUsageMiddleware
             $conf->set('metadata.broker.list', config('logUsage.kafka_server'));
             $producer = new Producer($conf);
             $topic = $producer->newTopic(config('logUsage.topic'));
-            $topic->produce(RD_KAFKA_PARTITION_UA, 0, $logData);
+            $topic->produce(RD_KAFKA_PARTITION_UA, 0, $logData, config('logUsage.key'));
             $producer->poll(0);
             $result = $producer->flush(config("logUsage.metadata_refresh_interval_ms"));
             if (RD_KAFKA_RESP_ERR_NO_ERROR !== $result) {
