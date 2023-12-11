@@ -53,8 +53,6 @@ class LogUsageMiddleware
             if (RD_KAFKA_RESP_ERR_NO_ERROR !== $result) {
                 Log::error('Was unable to flush, messages might be lost!');
 
-            } else{
-                Log::info('Broker: successfully sent');
             }
         } catch (Exception $exception) {
             Log::error($exception->getMessage());
